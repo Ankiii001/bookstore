@@ -29,7 +29,8 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter output = response.getWriter();
-		output.println("Created");
+		String title = request.getParameter("title");
+		output.println("Book title : " + title);
 	}
 
 	/**
