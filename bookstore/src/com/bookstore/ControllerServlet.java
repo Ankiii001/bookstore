@@ -30,16 +30,21 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Set response content type
-		
+
+		request.setAttribute("book_title", "1984");
+
+		request.getRequestDispatcher("/BookList.jsp").forward(request, response);
+
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
-	 *      
-	 *      A form should use a GET request if it is requesting or searching for data from the server.
-			If the form is going to update data on the server the request should be a POST.
+	 * 
+	 *      A form should use a GET request if it is requesting or searching for
+	 *      data from the server. If the form is going to update data on the server
+	 *      the request should be a POST.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
