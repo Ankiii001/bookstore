@@ -2,6 +2,7 @@ package com.bookstore;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 //import javax.servlet.annotation.WebServlet;
@@ -15,13 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet("/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ArrayList<String> bookTitles = new ArrayList<String>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public ControllerServlet() {
-		super();
-		// TODO Auto-generated constructor stub
+		// Add books to our ArrayList
+		bookTitles.add("To Kill a Mockingbird");
+		bookTitles.add("1984");
+		bookTitles.add("Frankenstein");
+		
 	}
 
 	/**
@@ -31,7 +36,7 @@ public class ControllerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setAttribute("book_title", "184");
+		request.setAttribute("book_titles", bookTitles);
 
 		request.getRequestDispatcher("/BookList.jsp").forward(request, response);
 
