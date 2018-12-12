@@ -31,7 +31,7 @@ public class ControllerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setAttribute("book_title", "1984");
+		request.setAttribute("book_title", "184");
 
 		request.getRequestDispatcher("/BookList.jsp").forward(request, response);
 
