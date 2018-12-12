@@ -37,6 +37,9 @@ public class ControllerServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
+	 *      
+	 *      A form should use a GET request if it is requesting or searching for data from the server.
+			If the form is going to update data on the server the request should be a POST.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
