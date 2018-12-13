@@ -16,16 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet("/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<String> bookTitles = new ArrayList<String>();
+	private ArrayList<Book> booklist = new ArrayList<Book>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public ControllerServlet() {
 		// Add books to our ArrayList
-		bookTitles.add("To Kill a Mockingbird");
-		bookTitles.add("1984");
-		bookTitles.add("Frankenstein");
+		booklist.add(new Book("To Kill a Mockingbird","happy Singh",312f));
+		booklist.add(new Book("To Kill","Rishabh",452f));
+		booklist.add(new Book("Mockingbird","bhuvesh Gargh",512f));
 		
 	}
 
@@ -36,7 +36,7 @@ public class ControllerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setAttribute("book_titles", bookTitles);
+		request.setAttribute("book_list", booklist);
 
 		request.getRequestDispatcher("/BookList.jsp").forward(request, response);
 
