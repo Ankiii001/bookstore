@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ControllerServlet
  */
-//@WebServlet("/ControllerServlet")
+@WebServlet("/books/*")
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Book> booklist = new ArrayList<Book>();
@@ -23,10 +23,10 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	public ControllerServlet() {
 		// Add books to our ArrayList
-		booklist.add(new Book("To Kill a Mockingbird","happy Singh",312f));
-		booklist.add(new Book("To Kill","Rishabh",452f));
-		booklist.add(new Book("Mockingbird","bhuvesh Gargh",512f));
-		
+		booklist.add(new Book("To Kill a Mockingbird", "happy Singh", 312f));
+		booklist.add(new Book("To Kill", "Rishabh", 452f));
+		booklist.add(new Book("Mockingbird", "bhuvesh Gargh", 512f));
+
 	}
 
 	/**
@@ -35,11 +35,8 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setAttribute("book_list", booklist);
-
 		request.getRequestDispatcher("/BookList.jsp").forward(request, response);
-
 
 	}
 
