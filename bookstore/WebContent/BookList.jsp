@@ -7,38 +7,18 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<style>
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
-
-table, th, td {
-	border: 1px solid black;
-	height: 50px;
-}
-
-th {
-	text-align: left;
-	padding: 15px;
-	background-color: #4CAF50;
-	color: white;
-}
-
-caption {
-	color: red;
-	font-weight: bold;
-	font-size: 2em;
-	padding: 8px 0 10px;
-}
-
-h1 {
-	text-align: center;
-}
-</style>
-
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css">
 <div class="container">
-	<h1>Book Store</h1>
+
+	<div class="links">
+		<h1>
+			<a href="list">Book Store</a>
+		</h1>
+		<h2>
+			<a href="new">Add New Book</a>
+		</h2>
+	</div>
 	<table>
 		<caption>List of Books</caption>
 		<tr>

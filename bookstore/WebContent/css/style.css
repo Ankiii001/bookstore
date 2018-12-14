@@ -1,17 +1,35 @@
 @charset "ISO-8859-1";
+body {
+	margin: auto;
+	width: 50%;
+	border: 3px solid green;
+	padding: 10px;
+	text-align: center;
+}
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 table, th, td {
-  border: 1px solid black;
-  height: 50px;
+	border: 1px solid black;
+	height: 50px;
 }
 
 th {
-  text-align: left;
-  padding: 15px;
-  background-color: #4CAF50;
-  color: white;
+	text-align: left;
+	padding: 15px;
+	background-color: #4CAF50;
+	color: white;
+}
+
+caption {
+	color: red;
+	font-weight: bold;
+	font-size: 2em;
+	padding: 8px 0 10px;
+}
+
+h1 {
+	text-align: center;
 }
