@@ -1,7 +1,7 @@
 package com.bookstore;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bookDAO.BookDAO;
+
 /**
  * Servlet implementation class ControllerServlet
  */
@@ -17,11 +19,15 @@ import javax.servlet.http.HttpServletResponse;
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Book> booklist = new ArrayList<Book>();
-
+	private BookDAO bookDAO;
 	/**
+	 * @throws SQLException 
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ControllerServlet() {
+	public ControllerServlet() throws SQLException {
+		bookDAO = new BookDAO();
+		bookDAO.connect();
+		bookDAO.disconnect();
 		// Add books to our ArrayList
 		booklist.add(new Book("To Kill a Mockingbird", "happy Singh", 312f));
 		booklist.add(new Book("To Kill", "Rishabh", 452f));
