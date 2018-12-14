@@ -35,9 +35,26 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String action= request.getPathInfo();
+		if (action.equals("/new")) {
+			addbook(request,response);
+		}
+		else {
+			listBooks(request,response);
+		}
+	
+
+	}
+
+	private void listBooks(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("book_list", booklist);
 		request.getRequestDispatcher("/BookList.jsp").forward(request, response);
+		
+	}
 
+	private void addbook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/BookForm.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -50,12 +67,21 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter output = response.getWriter();
-		String title = request.getParameter("title");
-		String author = request.getParameter("author");
-		output.println("<h1>" + "Book title : " + title + "</h1>");
-		output.println("<h1>" + "Book Author : " + author + "</h1>");
+		String action= request.getPathInfo();
+		if (action.equals("/insert")) {
+			insertbook(request,response);
+		}
+	}
+
+	private void insertbook(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String title = request.getParameter("booktitle");
+		String author = request.getParameter("bookauthor");
+		String priceString = request.getParameter("bookprice");
+		
+		Book newBook = new Book(title, author, Float.parseFloat(priceString));
+		booklist.add(newBook);
+		
+		response.sendRedirect("List");
 	}
 
 }
