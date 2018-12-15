@@ -22,12 +22,14 @@
 	<table>
 		<caption>List of Books</caption>
 		<tr>
+			<th>S.No</th>
 			<th>Title</th>
 			<th>Author</th>
 			<th>Price</th>
 		</tr>
 		<c:forEach items="${book_list}" var="item">
 			<tr>
+				<td>${item.getId() }</td>
 				<td>${item.getTitle() }</td>
 				<td>${item.getAuthor() }</td>
 				<td>${item.getPrice() }</td>

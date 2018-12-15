@@ -28,6 +28,7 @@ public class BookDAO {
 	public void disconnect() throws SQLException {
 		try {
 			if (jdbcConnection != null && !jdbcConnection.isClosed()) {
+				System.out.println("connection closed");
 				jdbcConnection.close();
 			}
 			

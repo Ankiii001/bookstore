@@ -4,7 +4,8 @@ public class Book {
 	private String title;
 	private String author;
 	private float price;
-	
+	private Integer id;
+	private static Integer counter=0;
 	
 	
 	/**
@@ -16,7 +17,22 @@ public class Book {
 		this.title = title;
 		this.author = author;
 		this.price = price;
+		this.id = ++counter;
 	}
+	
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	/**
 	 * @return the title
 	 */
