@@ -22,17 +22,18 @@ public class ControllerServlet extends HttpServlet {
 	private BookDAO bookDAO;
 	/**
 	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ControllerServlet() throws SQLException {
+	public ControllerServlet() throws SQLException, ClassNotFoundException {
 		bookDAO = new BookDAO();
 		bookDAO.connect();
-		bookDAO.disconnect();
+		
 		// Add books to our ArrayList
 		booklist.add(new Book("To Kill a Mockingbird", "happy Singh", 312f));
 		booklist.add(new Book("To Kill", "Rishabh", 452f));
 		booklist.add(new Book("Mockingbird", "bhuvesh Gargh", 512f));
-
+		bookDAO.disconnect();
 	}
 
 	/**
